@@ -4,4 +4,3 @@ flask_restful
 requests
 pymongo
 flask_cors
-nudity
