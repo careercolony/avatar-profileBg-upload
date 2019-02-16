@@ -4,7 +4,7 @@ COPY . /app
 WORKDIR /app
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
 CMD ["image_upload.py"]
 
 
