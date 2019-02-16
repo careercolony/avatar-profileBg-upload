@@ -4,8 +4,8 @@ COPY . /app
 WORKDIR /app
 
 # update pip
-RUN python3.6 -m pip install pip --upgrade
-RUN python3.6 -m pip install wheel
+RUN python3.5 -m pip install pip --upgrade
+RUN python3.5 -m pip install wheel
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["image_upload.py"]
