@@ -9,9 +9,9 @@ RUN ln -sfn /usr/bin/python3.6 /usr/bin/python3 && ln -sfn /usr/bin/python3 /usr
 # also useful
 RUN python3.6 -m pip install --no-cache-dir ipython requests numpy pandas quandl
 RUN python3.6 -m pip install --no-cache-dir tensorflow-gpu==1.3.0rc0
-RUN ln -s /usr/bin/python3.6 /usr/bin/python
 COPY . /app
 WORKDIR /app
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["image_upload.py"]
