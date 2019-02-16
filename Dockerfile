@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM ubuntu:16.04
 MAINTAINER Carl Njoku "flavoursoft@yahoo.com"
 RUN apt-get update -y
 RUN apt-get install -y python-pip3 python3.6 build-essential
