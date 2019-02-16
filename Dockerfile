@@ -1,11 +1,22 @@
-FROM python:3.6.6-alpine
+FROM ubuntu:16.04
+
+RUN apt-get update \
+    && apt-get install -y software-properties-common curl \
+    && add-apt-repository ppa:jonathonf/python-3.6 \
+    && apt-get remove -y software-properties-common \
+    && apt autoremove -y \
+    && apt-get update \
+    && apt-get install -y python3.6 \
+    && curl -o /tmp/get-pip.py "https://bootstrap.pypa.io/get-pip.py" \
+    && python3.6 /tmp/get-pip.py \
+    && apt-get remove -y curl \
+    && apt autoremove -y \
+    && rm -rf /var/lib/apt/lists/*
 MAINTAINER Carl Njoku "flavoursoft@yahoo.com"
 COPY . /app
 WORKDIR /app
 
-# update pip
-RUN python3 -m pip install --upgrade pip
-RUN pip install -r requirements.txt
+
 ENTRYPOINT ["python"]
 CMD ["image_upload.py"]
 
