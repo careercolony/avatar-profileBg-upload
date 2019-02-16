@@ -4,7 +4,7 @@ COPY . /app
 WORKDIR /app
 RUN apk update 
 RUN apk update install -y software-properties-common vim
-RUN add-apk-repository ppa:jonathonf/python-3.6
+RUN apk-add-repository ppa:jonathonf/python-3.6
 RUN apk update
 
 RUN apk update install -y build-essential python3.6 python3.6-dev python3-pip python3.6-venv
